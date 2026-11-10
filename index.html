@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101c2a" />
+  <title>ISLA CERO — Último en pie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><div><b>ISLA CERO</b><small>ÚLTIMO EN PIE</small></div></div>
+      <div class="match-pill"><span class="live-dot"></span> PARTIDA EN CURSO</div>
+      <button id="pause-btn" class="icon-btn" aria-label="Pausar">Ⅱ</button>
+    </header>
+    <section class="match-info">
+      <div class="zone-card"><span class="zone-icon">◉</span><div><small>ZONA SEGURA</small><strong id="zone-time">01:42</strong></div></div>
+      <div class="survivors"><span class="survivor-icon">♟</span><strong id="alive-count">12</strong><small>EN PIE</small></div>
+      <div class="eliminations"><span>✕</span><strong id="kill-count">0</strong><small>BAJAS</small></div>
+    </section>
+    <div class="objective"><span class="objective-dot"></span><span id="objective-text">Encuentra equipo. Sé el último en pie.</span></div>
+    <div class="crosshair"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="hit-marker" class="hit-marker">✕</div>
+    <div class="damage-flash"></div>
+    <div class="bottom-left">
+      <div class="vitals">
+        <div class="stat-line"><span class="heart">♥</span><div class="bar"><i id="health-bar"></i></div><b id="health-text">100</b></div>
+        <div class="stat-line"><span class="shield">⬡</span><div class="bar shield-bar"><i id="shield-bar"></i></div><b id="shield-text">50</b></div>
+      </div>
+      <div class="weapon-card">
+        <div class="weapon-icon">⌁</div><div class="weapon-data"><small>RIFLE DE ASALTO</small><strong><span id="ammo-now">24</span><i>/</i><span id="ammo-reserve">96</span></strong></div><button id="reload-btn" class="reload-btn">↻</button>
+      </div>
+    </div>
+    <div class="minimap-wrap"><div class="minimap-label">ISLA BRUMA <span>●</span></div><div class="minimap" id="minimap"><div class="map-land"></div><div class="map-road"></div><div class="safe-zone"></div><div class="map-player">▲</div><div class="map-enemies"></div><span class="map-name name-a">PUEBLO<br/>MADERA</span><span class="map-name name-b">EL MIRADOR</span></div><div class="map-coords">N <span id="coords">042 · 118</span></div></div>
+    <div class="controls-hint" id="desktop-hint">WASD moverse <span>·</span> Ratón apuntar <span>·</span> Clic disparar <span>·</span> Q construir</div>
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joystick" id="joystick"><div class="joy-ring"></div><div class="joy-knob" id="joy-knob"></div></div>
+      <div class="right-controls"><button id="build-btn" class="action-btn build-action"><span>▧</span><small>MURO</small></button><button id="jump-btn" class="action-btn jump-action"><span>↟</span><small>SALTAR</small></button><button id="fire-btn" class="fire-btn"><span>✦</span><small>DISPARAR</small></button></div>
+      <div id="look-pad" class="look-pad" aria-label="Arrastra para mirar"></div>
+    </div>
+    <div class="toast" id="toast"></div>
+    <div class="overlay" id="start-overlay">
+      <div class="start-card"><div class="eyebrow"><span></span> TEMPORADA 01 · ISLA BRUMA</div><h1>SOLO<br/><em>QUEDA</em><br/>UNO.</h1><p>Una isla. Once rivales. ¿Tienes lo necesario para salir?</p><div class="drop-stats"><div><strong>12</strong><small>JUGADORES</small></div><div><strong>01</strong><small>GANADOR</small></div><div><strong>∞</strong><small>POSIBILIDADES</small></div></div><button id="start-btn" class="primary-btn">DESPLEGAR <span>→</span></button><div class="start-note">CONTROLES TÁCTILES · HECHO PARA MÓVIL</div></div>
+      <div class="start-side-note">BRUMA<br/>ISLAND<br/><span>0 4 : 2 6</span></div>
+    </div>
+    <div class="overlay hidden" id="pause-overlay"><div class="dialog-card"><div class="eyebrow">PARTIDA PAUSADA</div><h2>Tómate un respiro.</h2><p>La isla seguirá aquí cuando vuelvas.</p><button id="resume-btn" class="primary-btn">VOLVER A LA PARTIDA <span>→</span></button><button id="quit-btn" class="text-btn">VOLVER A EMPEZAR</button></div></div>
+    <div class="overlay hidden" id="end-overlay"><div class="dialog-card end-card"><div class="eyebrow" id="end-eyebrow">RESULTADO</div><h2 id="end-title">¡VICTORIA!</h2><p id="end-copy">La isla es tuya.</p><div class="result-stats"><div><strong id="end-kills">0</strong><small>ELIMINACIONES</small></div><div><strong id="end-time">00:00</strong><small>SUPERVIVENCIA</small></div></div><button id="again-btn" class="primary-btn">JUGAR OTRA VEZ <span>→</span></button></div></div>
+    <div class="rotate-tip">GIRA EL DISPOSITIVO PARA UNA MEJOR EXPERIENCIA</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
