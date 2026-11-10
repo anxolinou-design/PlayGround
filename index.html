@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101b2c" />
+  <title>Isla Neón — Battle Royale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">N</div><div><b>ISLA <span>NEÓN</span></b><small>ÚLTIMO EQUIPO EN PIE</small></div></div>
+      <div class="match-pill"><i></i> EN PARTIDA <span id="match-clock">00:00</span></div>
+      <button id="sound-btn" class="icon-btn" aria-label="Sonido">♫</button>
+    </header>
+    <section class="mission-card glass"><div class="mission-icon">⌖</div><div><small>OBJETIVO</small><b id="objective">Elimina a los rivales</b><span id="alive-label">8 jugadores restantes</span></div></section>
+    <section class="map-card glass"><div class="map-head"><span>ISLA NEÓN</span><span class="map-dot"></span></div><canvas id="minimap" width="144" height="144"></canvas><div class="storm-line"><i></i> ZONA SEGURA <b id="storm-time">00:45</b></div></section>
+    <div class="center-reticle"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="hitmarker" class="hitmarker">✕</div>
+    <div id="toast" class="toast"></div>
+    <div class="kill-feed" id="kill-feed"></div>
+    <section class="bottom-hud">
+      <div class="player-stats">
+        <div class="stat-label"><span>❤</span><b>VIDA</b><strong id="health-num">100</strong></div><div class="bar health"><i id="health-bar"></i></div>
+        <div class="stat-label shield-label"><span>⬟</span><b>ESCUDO</b><strong id="shield-num">50</strong></div><div class="bar shield"><i id="shield-bar"></i></div>
+      </div>
+      <div class="weapon-card glass"><div class="weapon-art">⌁</div><div><small>ASALTO</small><b>Ráfaga MK-I</b></div><div class="ammo"><strong id="ammo-now">24</strong><span>/ <i id="ammo-reserve">96</i></span></div><div class="reload-progress" id="reload-progress"></div></div>
+      <div class="quick-slots"><div class="slot active"><small>1</small><span>⌁</span></div><div class="slot"><small>2</small><span>✚</span><i>2</i></div><div class="slot"><small>3</small><span>▧</span><i id="build-count">30</i></div></div>
+    </section>
+    <div class="controls desktop-help"><span>W A S D</span> MOVER <span>R</span> RECARGAR <span>F</span> CONSTRUIR <span>SHIFT</span> CORRER</div>
+    <section class="mobile-controls" id="mobile-controls">
+      <div class="move-zone"><div class="stick-base"><div class="stick-knob"></div></div><span>MOVER</span></div>
+      <div class="look-zone"><span>MIRA</span></div>
+      <button class="touch-action build-action" id="build-btn"><span>▧</span><small>MURO</small></button>
+      <button class="touch-action reload-action" id="reload-btn"><span>↻</span></button>
+      <button class="touch-action fire-action" id="fire-btn"><span>✦</span><small>DISPARAR</small></button>
+    </section>
+    <div id="start-screen" class="screen-cover">
+      <div class="start-backdrop"></div>
+      <div class="start-content"><div class="eyebrow"><i></i> TEMPORADA 01 · ARENA DE ENTRENAMIENTO</div><h1>ISLA<br><span>NEÓN</span></h1><p>Una isla. Ocho rivales. <b>Solo queda uno.</b></p><div class="start-facts"><div><b>08</b><small>JUGADORES</small></div><div><b>01</b><small>SUPERVIVIENTE</small></div><div><b>∞</b><small>POSIBILIDADES</small></div></div><button id="play-btn" class="play-button">ENTRAR EN LA ISLA <span>➜</span></button><div class="start-note">CONTROLES: <b>WASD</b> + RATÓN &nbsp;·&nbsp; EN MÓVIL: JOYSTICK + TOCAR</div></div>
+      <div class="island-caption"><span>◈</span> COSTA ESMERALDA <i>·</i> 02:47 PM</div>
+    </div>
+    <div id="end-screen" class="screen-cover end-screen hidden"><div class="end-content"><div class="eyebrow">PARTIDA TERMINADA</div><h2 id="end-title">¡VICTORIA!</h2><p id="end-copy">La isla es tuya.</p><div class="result-stats"><div><b id="result-kills">0</b><small>ELIMINACIONES</small></div><div><b id="result-time">00:00</b><small>TIEMPO VIVO</small></div></div><button id="again-btn" class="play-button">VOLVER A JUGAR <span>↻</span></button></div></div>
+    <div class="rotate-hint">↻<span>GIRA TU DISPOSITIVO PARA UNA MEJOR VISTA</span></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
